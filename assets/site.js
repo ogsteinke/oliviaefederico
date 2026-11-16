@@ -70,7 +70,10 @@
     const g = load();
     if (!g.unlocked) { location.replace("index.html"); return; }
     if (g.lang !== page) { g.lang = page; save(g); }
-    if (g.name && g.lastLog !== today()) { g.lastLog = today(); save(g); logVisit("came back", g); }
+    if (g.name && g.lastLog !== today()) {
+      g.guest = findGuest(g.name) || null;   // re-check against the current guest list
+      g.lastLog = today(); save(g); logVisit("came back", g);
+    }
     const hello = document.getElementById("hello");
     if (hello && g.name) {
       const first = g.name.split(" ")[0];
