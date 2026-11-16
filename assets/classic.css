@@ -548,3 +548,8 @@ body, body p, body li, .lead-text, .event .addr, .info-card p, .rsvp-input, .sto
 textarea.rsvp-input { min-height: 3.75rem; resize: vertical; padding-top: 1rem; }
 .rsvp-send { height: 3.75rem; box-sizing: border-box; }
 @media (max-width: 560px) { .rsvp-choice span { font-size: 1.3rem !important; } }
+
+/* ---------- RSVP: name found on the guest list ---------- */
+.rsvp-input[readonly] { background: transparent !important; border-style: dashed !important; color: var(--ink) !important; }
+.rsvp-notyou { display: inline-block; margin: .35rem 0 .2rem; font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+  color: var(--ink-soft) !important; border-bottom: 1px solid var(--gold-soft); text-decoration: none; }

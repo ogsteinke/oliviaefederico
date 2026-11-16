@@ -29,6 +29,7 @@
     const k = hash(n);
     return D[k] ? unscramble(D[k], n) : null;
   }
+  window.LA.findGuest = findGuest;   // used by the RSVP page to "log in" by name
   // loose comparison of the guest's answer with the expected one
   function answerOk(given, expected) {
     const a = norm(given), b = norm(expected);
@@ -111,7 +112,7 @@
       if (!norm(name)) { document.getElementById("name-err").hidden = false; return; }
       const guest = findGuest(name);
       if (!guest && norm(name).split(" ").length < 2) { document.getElementById("name-err").hidden = false; return; }
-      g.name = name;
+      g.name = name; g.guest = guest || null;
       let q;
       if (guest && guest.q) q = { text: guest.q, a: guest.a, r: guest.r };
       else { const D = window.DEFAULT_QUESTIONS; const d = D[parseInt(hash(norm(name)), 16) % D.length]; q = { text: d[lang] }; }
