@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 185" fill="none" stroke="#24456E" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- a little lake boat with a cabin, on waves -->
+  <path d="M62 128 H238 L218 156 H86 Z"/>
+  <path d="M108 128 V96 H186 V128"/>
+  <path d="M124 110 h12 M150 110 h12 M174 110 h0"/>
+  <path d="M100 96 L118 76 H176 L194 96"/>
+  <path d="M147 76 V48 M147 50 l20 8 l-20 8"/>
+  <path d="M30 172 q15 -10 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+</svg>

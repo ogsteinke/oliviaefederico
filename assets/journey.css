@@ -1,0 +1,209 @@
+/* Getting there · journey map (tools/build_journey.py, assets/journey.js) */
+.journey {
+  --ink: #1E3A5F; --gold: #B9A57A; --gold-soft: rgba(185,165,122,.45); --paper: #FAF7F0;
+  display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, 1fr); gap: 2.4rem;
+  max-width: 1180px; margin: 0 auto 3rem; padding: 0 1.25rem; align-items: start;
+}
+@media (max-width: 900px) { .journey { grid-template-columns: 1fr; gap: 1.4rem; } }
+
+.j-map {
+  position: relative; background: #FBF8F1; padding: 10px; border: 1px solid var(--gold);
+  outline: 1px solid var(--gold-soft); outline-offset: 5px; box-shadow: 0 30px 60px -45px rgba(30,58,95,.45);
+}
+@media (min-width: 901px) { .j-map { position: sticky; top: 90px; } }
+.j-scene { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; background: #F8F4EA; transition: opacity .9s ease; }
+.j-scene-b { position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); }
+.journey[data-step="1"] .j-scene-b { opacity: 0; pointer-events: none; }
+.journey:not([data-step="1"]) .j-scene-a { opacity: 0; }
+
+/* engraved style: ivory land, pale water with fine water-lining, hairline ink */
+.j-land { fill: #F8F4EA; stroke: var(--ink); stroke-width: .75; stroke-linejoin: round; }
+.j-grat { stroke: var(--gold); stroke-width: .35; opacity: .8; fill: none; }
+.j-deg { font-size: 8px; font-style: italic; fill: #8A7A55 !important; letter-spacing: .05em; }
+.j-cont { font-size: 11px; letter-spacing: .55em; fill: #8B8572 !important; }
+.j-water { fill: #E9EEEE; }
+.j-shore { fill: none; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.j-river { fill: none; stroke: #6F879C; stroke-width: 1.1; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.j-hach { fill: none; stroke: #8F8670; stroke-width: .45; vector-effect: non-scaling-stroke; stroke-linecap: round; opacity: .55; }
+.j-townarea { fill: url(#j-hatch-town); stroke: none; }
+.j-region { font-size: 30px; letter-spacing: .9em; fill: #A39A82 !important; }
+.j-milan { fill: none; stroke: var(--gold); stroke-width: .8; vector-effect: non-scaling-stroke; stroke-dasharray: 2 3; }
+.j-stop { fill: #FBF8F1; stroke: var(--ink); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.j-prom { fill: none; stroke: var(--gold); stroke-width: .7; stroke-dasharray: .9 .7; stroke-linecap: round; }
+.j-street { fill: none; stroke: #A79E88; stroke-width: .7; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.j-ferry { fill: none; stroke: #6F879C; stroke-width: .8; vector-effect: non-scaling-stroke; stroke-dasharray: 5 4; }
+.j-rocca-pin { cursor: pointer; }
+.j-rocca-pin:hover use { opacity: .8; }
+
+/* routes: drawn as the steps play */
+.j-route { fill: none; stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 5 4; vector-effect: non-scaling-stroke; }
+.j-flight { stroke-width: 1.1; }
+.j-rail { stroke-dasharray: none; stroke-width: 1.1; }
+.j-railticks { fill: none; stroke: var(--ink); stroke-width: 9; stroke-dasharray: 1.4 16; opacity: .9; }
+.j-boatroute { stroke: #8A7A55; stroke-width: 1.2; stroke-dasharray: 3 3; }
+.j-dot { fill: var(--gold); stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.j-plane .j-dot { stroke-width: .9; }
+
+/* labels */
+.j-scene text { font-family: var(--caps, "Cormorant Garamond", serif); fill: var(--ink); }
+.j-label-a { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; }
+.j-sea { font-size: 17px; font-style: italic; letter-spacing: .5em; fill: #5F7890 !important; }
+.j-n { font-size: 7px; fill: var(--ink) !important; letter-spacing: .1em; font-weight: 600; }
+.j-lo { font-size: 28px; letter-spacing: .16em; text-transform: uppercase; fill: #2B3A4A !important; }
+.j-lo-strong { font-weight: 600; fill: var(--ink) !important; }
+.j-lo-it { text-transform: none; font-style: italic; letter-spacing: .04em; font-size: 28px; fill: #6A6250 !important; }
+.j-lo-big { font-size: 38px; font-weight: 600; letter-spacing: .24em; fill: var(--ink) !important; }
+.j-lake-o { font-size: 34px; font-style: italic; letter-spacing: .5em; fill: #5F7890 !important; }
+.j-river-l { font-size: 24px; font-style: italic; letter-spacing: .4em; fill: #5F7890 !important; }
+.j-ld { font-size: 2.3px; letter-spacing: .05em; fill: #2B3A4A !important; }
+.j-ld-town { font-size: 2.4px; letter-spacing: .55em; fill: #7A7158 !important; }
+.j-ld-it { font-style: italic; fill: #7A6A45 !important; font-size: 2px; }
+.j-ld-sm { font-size: 1.95px; font-style: italic; }
+.j-ld-street { font-size: 1.6px; font-style: italic; fill: #8A8270 !important; }
+.j-ld-ferry { font-size: 1.7px; font-style: italic; fill: #5F7890 !important; }
+.j-ld-venue { font-size: 2.5px; letter-spacing: .14em; font-weight: 600; fill: var(--ink) !important; }
+.j-ld-venue-it { font-size: 2.2px; font-style: italic; fill: #8A7A55 !important; }
+.j-l-hotel { font-size: 2.3px; letter-spacing: .08em; font-weight: 600; fill: var(--ink) !important; }
+.j-lake-d { font-size: 2.5px; font-style: italic; letter-spacing: .55em; fill: #5F7890 !important; }
+
+/* which layer shows at which step */
+.j-detail, .j-over, .j-car, .j-boat, .j-plane, .j-train, .j-rail, .j-railticks, .j-drive { transition: opacity .6s ease; }
+.journey[data-step="2"] .j-detail, .journey[data-step="1"] .j-detail { opacity: 0; pointer-events: none; }
+.journey[data-step="3"] .j-over, .journey[data-step="4"] .j-over { opacity: 0; pointer-events: none; }
+.journey[data-step="3"] .j-rail, .journey[data-step="4"] .j-rail, .journey[data-step="3"] .j-railticks, .journey[data-step="4"] .j-railticks,
+.journey[data-step="3"] .j-drive, .journey[data-step="4"] .j-drive { opacity: 0; }
+.j-boat, .j-boatroute { opacity: 0; }
+.journey[data-step="4"] .j-boat, .journey[data-step="4"] .j-boatroute { opacity: 1; }
+.journey[data-step="3"] .j-car, .journey[data-step="4"] .j-car, .journey[data-step="3"] .j-train, .journey[data-step="4"] .j-train, .journey[data-step="1"] .j-train { opacity: 0; }
+.j-pin { cursor: pointer; }
+.journey[data-step="3"] .j-pin, .journey[data-step="4"] .j-pin { animation: jPin .6s ease both; animation-delay: calc(var(--i) * .12s + .6s); }
+@keyframes jPin { from { opacity: 0; } to { opacity: 1; } }
+
+.j-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; justify-content: center; margin: .7rem 0 0; font-size: .9rem; color: var(--ink); }
+.j-legend span { display: inline-flex; align-items: center; gap: .35rem; }
+.journey[data-step="1"] .j-legend, .journey[data-step="2"] .j-legend { display: none; }
+.j-note { text-align: center; font-style: italic; font-size: .82rem; color: #7C8A99; margin: .3rem 0 .1rem; }
+
+/* the steps */
+.j-steps { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+.j-step button {
+  display: flex; gap: 1rem; width: 100%; text-align: left; background: none; border: 0; border-top: 1px solid var(--gold-soft);
+  padding: 1.1rem .2rem; cursor: pointer; color: inherit; font: inherit; opacity: .55; transition: opacity .3s ease;
+}
+.j-step:last-child button { border-bottom: 1px solid var(--gold-soft); }
+.j-step button:hover, .j-step.on button { opacity: 1; }
+.j-num {
+  flex: none; width: 2.1rem; height: 2.1rem; border: 1px solid var(--gold); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--caps, "Playfair Display", serif); font-size: 1.1rem; color: var(--ink);
+}
+.j-step.on .j-num { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.j-st { display: flex; flex-direction: column; gap: .3rem; }
+.j-tt { font-family: var(--caps, "Playfair Display", serif); text-transform: uppercase; letter-spacing: .18em; font-size: .95rem; font-weight: 600; color: var(--ink); }
+.j-tx { font-size: 1.02rem; line-height: 1.55; color: #2B3A4A; }
+.j-extra { display: none; margin: .6rem 0 0 3.1rem; }
+.journey[data-step="3"] .j-hotels-box, .journey[data-step="4"] .j-rocca-box { display: block; }
+.j-extra-h { font-family: var(--caps, "Playfair Display", serif); text-transform: uppercase; letter-spacing: .25em; font-size: .78rem; color: var(--gold); margin: 0 0 .2rem; }
+.j-rocca-link { margin-top: 1rem; }
+.j-extra ul { list-style: none; padding: 0; margin: 0 0 .4rem; }
+.j-extra li { display: flex; flex-direction: column; padding: .35rem 0; }
+.j-extra li a { font-family: var(--caps, "Playfair Display", serif); text-transform: uppercase; letter-spacing: .14em; font-weight: 600; font-size: .95rem; color: var(--ink); text-decoration: none; }
+.j-extra li a:hover { text-decoration: underline; }
+.j-extra span, .j-more { font-style: italic; font-size: .92rem; color: #5A6F86; }
+.j-ctrl { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1.4rem; }
+.j-ctrl .btn-ink { cursor: pointer; margin: 0; }
+.j-replay { background: none; border: 0; font-style: italic; color: #5A6F86; cursor: pointer; padding: .4rem; }
+.journey[data-step="1"] .j-prev { visibility: hidden; }
+@media (max-width: 900px) { .j-extra { margin-left: 0; } }
+
+/* exploring Arona: cards under the map */
+.explore-arona { max-width: 1180px; }
+.sights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 1.5rem; text-align: left; }
+@media (max-width: 900px) { .sights { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .sights { grid-template-columns: 1fr; } }
+.sight { background: #fff; border: 1px solid var(--gold-soft); padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; }
+.sight h3 { font-family: var(--caps, "Playfair Display", serif); font-weight: 500; font-size: 1.35rem; color: var(--ink); margin: 0 0 .5rem; }
+.sight p { flex: 1; line-height: 1.55; color: #2B3A4A; margin: 0 0 1rem; }
+.sight > div { display: flex; flex-wrap: wrap; gap: .5rem; }
+.sight .btn-ink { margin: 0; }
+
+/* Arona detail: town blocks, streets, ferry route */
+.j-block { fill: #E2D8C3; }
+.j-street { fill: none; stroke: #CFC4AB; stroke-width: .9; stroke-linecap: round; }
+.j-ld-street { font-size: 1.7px; font-style: italic; fill: #9A8B68 !important; letter-spacing: .08em; }
+.j-ferry { fill: none; stroke: #6F879C; stroke-width: 1.3; stroke-dasharray: 5 3 1 3; vector-effect: non-scaling-stroke; }
+.j-ld-ferry { font-size: 1.9px; font-style: italic; fill: #5A6F86 !important; letter-spacing: .05em; }
+
+/* things to do: cards with a photo */
+.sights { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1100px) { .sights { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .sights { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .sights { grid-template-columns: 1fr; } }
+.sight { padding: 0; }
+.sight-photo { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: #E3E9EE; }
+.sight-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+.sight:hover .sight-photo img { transform: scale(1.04); }
+.sight-body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.sight-body > div { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; }
+
+/* step 3 · Arona: hotels and the welcome dinner a touch stronger */
+.journey[data-step="3"] .j-l-hotel, .journey[data-step="3"] .j-l-dinner { font-weight: 600; }
+.j-extra li a { text-decoration: none; }
+.j-more a { color: var(--ink); }
+
+/* a fine double rule inside the map frame for the lake views (the Atlantic view draws its own degree border) */
+.j-map::after { content: ""; position: absolute; left: 15px; right: 15px; top: 15px; aspect-ratio: 4 / 3; width: calc(100% - 30px);
+  border: 1px solid var(--ink); box-shadow: inset 0 0 0 3px #F8F4EA, inset 0 0 0 3.6px var(--ink); pointer-events: none; opacity: 0; transition: opacity .9s ease; }
+.journey:not([data-step="1"]) .j-map::after { opacity: .9; }
+.j-map::after { height: auto; }
+.j-map::after { display: none !important; }
+.j-planeicon { fill: var(--ink); stroke: #FBF8F1; stroke-width: 3; paint-order: stroke; }
+
+/* Nov 14 · richer engraved detail (Atlantic: lakes, rivers, mountains; Lake Maggiore: towns, small lakes, woods, runways, train icon) */
+.j-lakes { fill: #E9EEEE; stroke: var(--ink); stroke-width: .45; stroke-linejoin: round; }
+.j-rivers { fill: none; stroke: #6F879C; stroke-width: .45; stroke-linecap: round; opacity: .85; }
+.j-mtn { fill: none; stroke: #6E6650; stroke-width: .45; stroke-linecap: round; }
+.j-mtn-sh { stroke-width: .3; opacity: .7; }
+.j-isle { font-size: 7.5px; font-style: italic; letter-spacing: .08em; fill: #5F7890 !important; }
+.j-lake-s { font-size: 19px; font-style: italic; letter-spacing: .12em; fill: #5F7890 !important; }
+.j-water-s { fill: #E9EEEE; }
+.j-shore-s { stroke-width: .8; }
+.j-canal { fill: none; stroke: #6F879C; stroke-width: .7; vector-effect: non-scaling-stroke; stroke-dasharray: 6 2; }
+.j-river-s { font-size: 19px; letter-spacing: .25em; }
+.j-runway { stroke: var(--ink); stroke-width: 5; stroke-linecap: butt; opacity: .75; }
+.j-city { fill: url(#j-hatch-city); stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.j-hamlet { fill: #FBF8F1; stroke: var(--ink); stroke-width: .9; vector-effect: non-scaling-stroke; }
+.j-lo-sm { font-size: 21px; letter-spacing: .12em; }
+.j-lo-it.j-lo-sm { font-size: 22px; }
+.j-tree { fill: none; stroke: #8C9A7C; stroke-width: 1.1; stroke-linecap: round; opacity: .8; }
+.j-hach { opacity: .5; }
+.j-trainicon { vector-effect: non-scaling-stroke; }
+.journey[data-step="2"] .j-train { opacity: 1; }
+.j-mtn-b { stroke-width: .8; vector-effect: non-scaling-stroke; opacity: .7; }
+.j-mtn-b.j-mtn-sh { stroke-width: .4; opacity: .4; }
+.j-lake-o2 { font-size: 26px; letter-spacing: .32em; }
+.j-hach { opacity: .38; }
+/* towns and Milan: hatched like Arona and Angera, no blue outline */
+.j-townpatch { fill: url(#j-hatch-city); stroke: #B5AC95; stroke-width: .6; vector-effect: non-scaling-stroke; }
+.j-city { fill: url(#j-hatch-city); stroke: #A79E88; stroke-width: .8; vector-effect: non-scaling-stroke; }
+.j-river-sm { stroke-width: .8; }
+.j-isle-b { fill: #F8F4EA; stroke: var(--ink); stroke-width: .7; vector-effect: non-scaling-stroke; }
+/* Nov 14 · wider overview (Lake Como to Novara), borders, peaks; overview type scaled up to match the wider view */
+.j-border { fill: none; stroke: #8A7A55; stroke-width: .6; stroke-dasharray: 3 1.6 .6 1.6; stroke-linecap: round; opacity: .9; }
+.j-scene-b .j-border { stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-dasharray: 7 3 1.5 3; }
+.j-band-sh { fill: none; stroke: var(--ink); stroke-linecap: round; stroke-linejoin: round; }
+.j-band { fill: none; stroke: #E9EEEE; stroke-linecap: round; stroke-linejoin: round; }
+.j-peak { fill: #FBF8F1; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.j-lo { font-size: 38px; } .j-lo-it { font-size: 38px; } .j-lo-big { font-size: 52px; } .j-lo-sm { font-size: 28px; } .j-lo-it.j-lo-sm { font-size: 29px; }
+.j-lake-o { font-size: 44px; } .j-lake-o2 { font-size: 34px; } .j-lake-s { font-size: 25px; } .j-river-l { font-size: 31px; } .j-river-s { font-size: 25px; }
+.j-region { font-size: 40px; } .j-region-s { font-size: 28px; letter-spacing: .4em; }
+/* the lakeside promenades, engraved: paved walk, plane trees, little jetties and moored boats, beaches stippled */
+.j-walk { fill: none; stroke: #FBF8F1; stroke-width: .4; stroke-linecap: round; }
+.j-walk-e { fill: none; stroke: #7C6E52; stroke-width: .07; stroke-linecap: round; }
+.j-ptree circle { fill: #E3E3CF; stroke: #5F7050; stroke-width: .07; }
+.j-jetty { fill: none; stroke: #5B5040; stroke-width: .11; stroke-linecap: round; }
+.j-mboat ellipse { fill: #FBF8F1; stroke: var(--ink); stroke-width: .06; }
+.j-sand circle { fill: #9C8B66; }
+.j-square { fill: #FBF8F1; stroke: #7C6E52; stroke-width: .07; }
+.j-pier { stroke: #5B5040; stroke-width: .28; stroke-linecap: round; }
+.j-pontoon { fill: #FBF8F1; stroke: #5B5040; stroke-width: .08; }
+.j-prom { display: none; }

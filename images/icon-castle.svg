@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 185" fill="none" stroke="#24456E" stroke-width="6" stroke-linejoin="miter">
+  <!-- the Rocca: tall keep with battlements, lower wing, gate; little trees like the other icons -->
+  <path d="M78 180 L222 180"/>
+  <path d="M125 180 V40 H135 V28 H147 V40 H155 V28 H167 V40 H175 V180"/>
+  <path d="M150 70 v18"/>
+  <path d="M175 180 V96 H185 V86 H195 V96 H203 V86 H213 V96 H222 V180"/>
+  <path d="M86 180 V112 H94 V102 H104 V112 H112 V102 H122 V112 H125"/>
+  <path d="M138 180 V150 a12 12 0 0 1 24 0 V180"/>
+  <circle cx="42" cy="126" r="20"/><path d="M42 146 V180"/>
+  <circle cx="258" cy="126" r="20"/><path d="M258 146 V180"/>
+</svg>

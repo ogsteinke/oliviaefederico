@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 185" fill="none" stroke="#24456E" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- two champagne flutes clinking -->
+  <g transform="rotate(-14 120 110)"><path d="M100 40 H136 L132 104 a14 14 0 0 1 -28 0 Z"/><path d="M118 118 V164 M100 168 H136"/><path d="M104 66 H132"/></g>
+  <g transform="rotate(14 180 110)"><path d="M164 40 H200 L196 104 a14 14 0 0 1 -28 0 Z"/><path d="M182 118 V164 M164 168 H200"/><path d="M168 66 H196"/></g>
+  <path d="M150 22 V8 M136 28 l-8 -10 M164 28 l8 -10"/>
+  <circle cx="42" cy="126" r="20"/><path d="M42 146 V180"/>
+  <circle cx="258" cy="126" r="20"/><path d="M258 146 V180"/>
+</svg>

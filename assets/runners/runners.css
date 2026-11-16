@@ -1,0 +1,38 @@
+/* The couple running with Mela while the page scrolls.
+   Self-contained: loaded by runners.js, no changes needed in styles.scss. */
+
+.runners {
+  position: fixed;
+  bottom: 8px;
+  z-index: 900;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.runners.is-visible { opacity: 1; transform: none; }
+
+.runners--couple { right: 14px; }
+.runners--dogs   { left: 10px; display: flex; align-items: flex-end; }
+
+.runner { position: relative; display: block; }
+.runner svg { display: block; width: 100%; height: auto; overflow: visible; }
+.runner .shadow {
+  position: absolute; left: 20%; right: 20%; bottom: 0; height: 6px;
+  border-radius: 50%; background: rgba(36, 69, 110, .14);
+  transform-origin: 50% 50%;
+}
+
+.runner--couple { width: 160px; }
+.runner--dog    { width: 112px; }
+.runner--poodle { width: 74px; margin-left: -10px; }
+
+@media (max-width: 640px) {
+  .runner--couple { width: 112px; }
+  .runner--dog    { width: 74px; }
+  .runner--poodle { width: 49px; margin-left: -6px; }
+  .runners--couple { right: 8px; }
+  .runners--dogs   { left: 4px; }
+}
+
+@media print { .runners { display: none; } }
