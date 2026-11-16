@@ -553,3 +553,11 @@ textarea.rsvp-input { min-height: 3.75rem; resize: vertical; padding-top: 1rem; 
 .rsvp-input[readonly] { background: transparent !important; border-style: dashed !important; color: var(--ink) !important; }
 .rsvp-notyou { display: inline-block; margin: .35rem 0 .2rem; font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
   color: var(--ink-soft) !important; border-bottom: 1px solid var(--gold-soft); text-decoration: none; }
+
+/* ---------- the ampersand: Cormorant italic, which reads clearly as "&"
+   (the copperplate script's ampersand looks like a plus sign) ---------- */
+.amp, .names-script .amp, .topnav .brand .amp, .hero-cover .couple em {
+  font-family: var(--caps) !important; font-style: italic !important; font-weight: 400 !important;
+}
+.topnav .brand .amp { font-size: .78em; margin: 0 .06em; }
+.gate-script .amp { font-size: 2.6rem; }
