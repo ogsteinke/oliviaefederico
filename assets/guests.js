@@ -13,7 +13,6 @@
 // Guests whose name is not in the list above get one of these questions
 // (always the same one for the same name).
 window.DEFAULT_QUESTIONS = [
-  { it: "Se Olivia e Federico fossero due cani, che razze sarebbero? (Mela non vale)", en: "If Olivia and Federico were two dogs, what breeds would they be? (Mela doesn't count)" },
   { it: "Che titolo dareste a un ritratto di Olivia e Federico?", en: "What title would you give a portrait of Olivia and Federico?" },
   { it: "Qual è il vostro ricordo più bello con gli sposi?", en: "What is your favourite memory with the couple?" },
   { it: "Descrivete Olivia e Federico in tre parole (una deve riguardare i cani).", en: "Describe Olivia and Federico in three words (one must be about dogs)." }
