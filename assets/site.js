@@ -1,7 +1,7 @@
 // Shared logic: guest state, entry gate, page guard, countdown, reveal.
 (function () {
   const KEY = "of-guest";
-  const PASS_HASH = "7c80c860"; // ✎ hash of the password (case-insensitive). Placeholder password: MELA.
+  const PASS_HASH = "7c80c860"; // ✎ hash of the password (case-insensitive).
                                   // New password: python3 tools/password_hash.py "YOUR WORD"
 
   function hash(s) { let x = 5381; for (const c of s) x = ((x * 33) ^ c.charCodeAt(0)) >>> 0; return x.toString(16); }
