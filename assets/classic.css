@@ -541,3 +541,10 @@ body, body p, body li, .lead-text, .event .addr, .info-card p, .rsvp-input, .sto
   .nav-footer-center p { white-space: normal; }
   .nav-footer, .nav-footer *, .nav-footer p { letter-spacing: .18em !important; }
 }
+
+/* ---------- RSVP: every box the height of the Send button ---------- */
+.rsvp-choice span { min-height: 0 !important; height: 3.75rem; padding: 0 .8rem !important; font-size: 1.55rem !important; }
+.rsvp-input { height: 3.75rem; box-sizing: border-box; }
+textarea.rsvp-input { min-height: 3.75rem; resize: vertical; padding-top: 1rem; }
+.rsvp-send { height: 3.75rem; box-sizing: border-box; }
+@media (max-width: 560px) { .rsvp-choice span { font-size: 1.3rem !important; } }
