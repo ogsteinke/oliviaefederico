@@ -7,7 +7,7 @@
 //  updates their own row instead of adding a new one.
 //  Leave it empty while testing: the form works, but nothing is saved.
 // =====================================================================
-const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyWnY0tEaN_4U3pOuzzPPoR1PZJeu6ddJt4nKTLyBlAgC73tdL7QRyuiBBJqQGoljuLeA/exec";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzGZC5B8EfLxZUtPmlT1Gx9VkNgGiKyNT68tbU6_hdXvuvY6IeSZ04wEAKFPqrduqP3/exec";
 
 window.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("rsvp-form");
