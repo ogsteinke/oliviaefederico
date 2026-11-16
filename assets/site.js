@@ -11,6 +11,19 @@
 
   window.LA = { load, save, norm };
 
+  // ---------- visit log: one row in the sheet's "Visits" tab ----------
+  // when a guest enters, and at most once a day when they come back
+  function logVisit(what, g) {
+    if (!window.ANSWERS_ENDPOINT || !g || !g.name) return;
+    const device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? "phone" : "computer";
+    try {
+      fetch(window.ANSWERS_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ type: "visit", what, name: g.name, matched: !!g.guest, lang: g.lang || "",
+          device, page: location.pathname.split("/").pop() || "index.html", at: new Date().toISOString() }) }).catch(() => {});
+    } catch (e) {}
+  }
+  const today = () => new Date().toISOString().slice(0, 10);
+
   // guest data generated from the Google Sheet by tools/sync_guests.py
   const SALT = "#olivia-federico-2027"; // must match SALT in tools/sync_guests.py
   function unscramble(b64, key) {
@@ -57,6 +70,7 @@
     const g = load();
     if (!g.unlocked) { location.replace("index.html"); return; }
     if (g.lang !== page) { g.lang = page; save(g); }
+    if (g.name && g.lastLog !== today()) { g.lastLog = today(); save(g); logVisit("came back", g); }
     const hello = document.getElementById("hello");
     if (hello && g.name) {
       const first = g.name.split(" ")[0];
@@ -113,6 +127,7 @@
       const guest = findGuest(name);
       if (!guest && norm(name).split(" ").length < 2) { document.getElementById("name-err").hidden = false; return; }
       g.name = name; g.guest = guest || null;
+      g.lastLog = today(); logVisit("entered", Object.assign({}, g, { lang }));
       let q;
       if (guest && guest.q) q = { text: guest.q, a: guest.a, r: guest.r };
       else { const D = window.DEFAULT_QUESTIONS; const d = D[parseInt(hash(norm(name)), 16) % D.length]; q = { text: d[lang] }; }
