@@ -531,3 +531,13 @@ body, body p, body li, .lead-text, .event .addr, .info-card p, .rsvp-input, .sto
 .sm-road { fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-linecap: round; }
 .sm-car { opacity: 0; }
 .story-map figcaption { padding-top: .5rem; }
+
+/* ---------- footer: one full-width centred line ---------- */
+.nav-footer { display: flex !important; justify-content: center !important; }
+.nav-footer-left, .nav-footer-right { display: none !important; }
+.nav-footer-center { flex: 1 1 100% !important; max-width: none !important; width: 100% !important; text-align: center !important; }
+.nav-footer-center p { margin: 0 auto; white-space: nowrap; }
+@media (max-width: 560px) {
+  .nav-footer-center p { white-space: normal; }
+  .nav-footer, .nav-footer *, .nav-footer p { letter-spacing: .18em !important; }
+}
