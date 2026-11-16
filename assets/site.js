@@ -128,7 +128,7 @@
     function send(answer) {
       if (answer && window.ANSWERS_ENDPOINT) {
         fetch(window.ANSWERS_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" },
-          body: JSON.stringify({ name: g.name, lang, question: g.question, answer, at: new Date().toISOString() }) }).catch(() => {});
+          body: JSON.stringify({ type: "answer", name: g.name, lang, question: g.question, answer, at: new Date().toISOString() }) }).catch(() => {});
       }
     }
     function enter() { g.done = true; save(g); setTimeout(() => location.href = lang + ".html", 200); }

@@ -21,4 +21,4 @@ window.DEFAULT_QUESTIONS = [
 // Optional: where to send the answers (e.g. a Google Apps Script web app or
 // a Formspree form URL). Leave empty while testing: answers then stay only in
 // the guest's own browser.
-window.ANSWERS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyqovKCatmAZGExXegdYArrk2r4N3NzKZOhA3rtnaI7ta1jDHp1RjVV013HzJ5jdG7YfQ/exec"; // same Google Sheet script as the RSVP (tab "Risposte")
+window.ANSWERS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyqovKCatmAZGExXegdYArrk2r4N3NzKZOhA3rtnaI7ta1jDHp1RjVV013HzJ5jdG7YfQ/exec"; // same Google Sheet script as the RSVP (answers go to the tab "Entrance answers")
