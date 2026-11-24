@@ -94,7 +94,7 @@
     let lang = g.lang || "it";
 
     const T = {
-      it: { name: "Come ti chiami?", namePh: "Nome e cognome", next: "Avanti", q: "Una domanda per voi", ansPh: "La vostra risposta…", answerBtn: "Rispondi", enter: "Entra", skip: "Rispondo dopo", hi: "Ciao", err: "Scrivete nome e cognome.", wrong: "Quasi! La risposta giusta era:", thanks: "Grazie! Ce lo racconterete al matrimonio." },
+      it: { name: "Il vostro nome", namePh: "Nome e cognome", next: "Avanti", q: "Una domanda per voi", ansPh: "La vostra risposta…", answerBtn: "Rispondi", enter: "Entra", skip: "Rispondo più tardi", hi: "Ciao", err: "Scrivete nome e cognome.", wrong: "Quasi! La risposta giusta era:", thanks: "Grazie! Ce lo racconterete al matrimonio." },
       en: { name: "What's your name?", namePh: "First and last name", next: "Next", q: "A question for you", ansPh: "Your answer…", answerBtn: "Answer", enter: "Come in", skip: "I'll answer later", hi: "Hi", err: "Please write your first and last name.", wrong: "So close! The right answer was:", thanks: "Thank you! Tell us more at the wedding." }
     };
 
