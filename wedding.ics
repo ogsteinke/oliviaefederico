@@ -4,11 +4,11 @@ PRODID:-//Olivia & Federico//Matrimonio//IT
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:matrimonio-olivia-federico-20270904
-DTSTAMP:20261110T000000Z
-DTSTART;TZID=Europe/Rome:20270904T163000
-DTEND;TZID=Europe/Rome:20270905T020000
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
 SUMMARY:Matrimonio di Olivia & Federico · Olivia & Federico's wedding
 LOCATION:Rocca di Angera\, Via Rocca Castello 2\, 21021 Angera (VA)\, Italia
-DESCRIPTION:Battello da Arona ore 16:30 · Boat from Arona 16:30. Cerimonia ore 17:00 · Ceremony 17:00. Ricevimento a seguire alla Rocca · Reception to follow at the Rocca.
+DESCRIPTION:Battello da Arona\, cerimonia e ricevimento alla Rocca. Orari in arrivo · Boat from Arona\, ceremony and reception at the Rocca. Times coming soon.
 END:VEVENT
 END:VCALENDAR
